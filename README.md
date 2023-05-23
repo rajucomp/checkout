@@ -72,22 +72,36 @@ The Checkout payment gateway provides a simple and straightforward way for merch
 
 
 ## Areas for Improvement
-1. There are a lot of areas for improvement. Each one of the areas listed below is essential to a production-grade payment gateway.
+There are a lot of areas for improvement. Each one of the areas listed below is essential to a production-grade payment gateway.
 
-2. Each request needs to check for authentication, authorization, validation, and fraud detection before it is allowed to enter the internal system.
+1. Each request needs to check for authentication, authorization, validation, and fraud detection before it is allowed to enter the internal system.
 
-3. There should be a schema registry that allows us to register our schema and view others' schemas so as to know what kinds of requests need to be made. This also helps with backward compatibility.
+2. There should be a schema registry that allows us to register our schema and view others' schemas so as to know what kinds of requests need to be made. This also helps with backward compatibility.
 
-4. Currently, the project only supports one payment method. Ideally, it should support multiple payment methods like debit/credit cards, internet banking, gift cards, etc.
+3. Currently, the project only supports one payment method. Ideally, it should support multiple payment methods like debit/credit cards, internet banking, gift cards, etc.
 
-5. The data is not securely stored, which is extremely important for a payment gateway. Ideally, we should use clients that are compliant with the appropriate security standards or, if we are going to store the data itself, great care should be taken to securely encrypt and store the data.
+4. The data is not securely stored, which is extremely important for a payment gateway. Ideally, we should use clients that are compliant with the appropriate security standards or, if we are going to store the data itself, great care should be taken to securely encrypt and store the data.
 
-6. Billing and subscription features should be added for a seamless customer experience.
+5. Billing and subscription features should be added for a seamless customer experience.
 
-7. Reporting and analytics should be added as additional features.
+6. Reporting and analytics should be added as additional features.
 
-8. Test-driven development (TDD) and behavior-driven development (BDD) need to be implemented. Currently, only a basic testing scenario is implemented.
+7. Test-driven development (TDD) and behavior-driven development (BDD) need to be implemented. Currently, only a basic testing scenario is implemented.
 
-9. Since we are dealing with external services, we should use a circuit breaker to shield the system from long-term downtimes and save costs.
+8. Since we are dealing with external services, we should use a circuit breaker to shield the system from long-term downtimes and save costs.
 
-10. Ledger bookkeeping and wallet features should be added so that transactions can be reconciled at the end of the day.
+9. Ledger bookkeeping and wallet features should be added so that transactions can be reconciled at the end of the day.
+
+
+## Distributed Design
+
+1. To account for the cases where we have high volumes of requests, we will employ load balancers and multiple instances of the payment gateway to distribute the load.
+
+2. There will be distributed database which will act as the source of truth for our payment data.
+
+3. To improve the response, we can use caching to cache the values.
+
+4. There should be a distributed messaging queue where multiple services can push to and listen from asynchronusly to improve the response time.
+
+## Cloud Technologies
+
