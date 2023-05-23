@@ -63,7 +63,7 @@ class DB:
 
         with lock:
             self._payment_orders[payment_order["payment_id"]] = payment_order
-    
+
     def update_payment_status(self, update_payment_status_request: Dict[str, Any]):
         payment_id = update_payment_status_request["payment_id"]
         payment_status = update_payment_status_request["status"]
@@ -77,8 +77,10 @@ class DB:
     def get_payment_id_details(self, payment_id: str):
         if payment_id not in self._payment_orders:
             return None
-        
+
         payment_details = self._payment_orders[payment_id]
-        payment_details["card_details"] = CardMasker.mask_credit_card_info(payment_details["card_details"])
+        payment_details["card_details"] = CardMasker.mask_credit_card_info(
+            payment_details["card_details"]
+        )
 
         return payment_details
