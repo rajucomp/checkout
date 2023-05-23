@@ -1,0 +1,63 @@
+# Python files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+*.code-workspace
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+*.user
+*.sln.docstates
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Environment and virtualenv
+.env
+.venv/
+venv/
+ENV/
+
+# Dependency directories
+lib/
+lib64/
+include/
+bin/
+build/
+dist/
+eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Distribution and packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+sdist/
+wheels/
+
+# Miscellaneous
+*.bak
+*.tmp
+*.swp
+*~
+
+# Ignore database migration files if using Flask-Migrate
+migrations/
