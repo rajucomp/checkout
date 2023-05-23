@@ -92,6 +92,14 @@ There are a lot of areas for improvement. Each one of the areas listed below is 
 
 9. Ledger bookkeeping and wallet features should be added so that transactions can be reconciled at the end of the day.
 
+10. Notification service should be added to provide notifications on payment events.
+
+11. Error handling and payment failures should be added. Retry alogorithms and exactly once delivery needs to be taken care of.
+
+12. The app should be able to handle multiple currencies.
+
+13. Idempotency needs to be taken care of to handle duplicate payments.
+
 
 ## Distributed Design
 
@@ -104,4 +112,10 @@ There are a lot of areas for improvement. Each one of the areas listed below is 
 4. There should be a distributed messaging queue where multiple services can push to and listen from asynchronusly to improve the response time.
 
 ## Cloud Technologies
+1. We need a distributed database like AWS RDS to handle concurrent updates.
 
+2. A Distributed messaging queue like AWS SQS or Kafka can be used to handle messaging and notifications.
+
+3. We can use distributed caching solutions like AWS Elasticcache or Redis to handle caching.
+
+4. We also can use AWS load Balancers to distribute our loads.
