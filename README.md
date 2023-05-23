@@ -60,3 +60,34 @@ To run the project, follow these steps:
 This command starts the container and exposes the APIs on port 5000.
 Conclusion
 The Checkout payment gateway provides a simple and straightforward way for merchants to process payments and retrieve payment details. Feel free to explore the APIs and integrate them into your application.
+
+
+## Assumptions Made
+1. This is a very basic API that doesn't handle authentication, authorization, and validation.
+
+2. We trust the client to send us data in the expected format as expected.
+
+3. The service is built such that it will run on a single instance. It is not designed to be built on a distributed design as that is out of scope.
+
+
+
+## Areas for Improvement
+1. There are a lot of areas for improvement. Each one of the areas listed below is essential to a production-grade payment gateway.
+
+2. Each request needs to check for authentication, authorization, validation, and fraud detection before it is allowed to enter the internal system.
+
+3. There should be a schema registry that allows us to register our schema and view others' schemas so as to know what kinds of requests need to be made. This also helps with backward compatibility.
+
+4. Currently, the project only supports one payment method. Ideally, it should support multiple payment methods like debit/credit cards, internet banking, gift cards, etc.
+
+5. The data is not securely stored, which is extremely important for a payment gateway. Ideally, we should use clients that are compliant with the appropriate security standards or, if we are going to store the data itself, great care should be taken to securely encrypt and store the data.
+
+6. Billing and subscription features should be added for a seamless customer experience.
+
+7. Reporting and analytics should be added as additional features.
+
+8. Test-driven development (TDD) and behavior-driven development (BDD) need to be implemented. Currently, only a basic testing scenario is implemented.
+
+9. Since we are dealing with external services, we should use a circuit breaker to shield the system from long-term downtimes and save costs.
+
+10. Ledger bookkeeping and wallet features should be added so that transactions can be reconciled at the end of the day.
