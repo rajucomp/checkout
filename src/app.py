@@ -1,5 +1,5 @@
 from http.client import HTTPException
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 import uuid
 
 from services.payment_service import PaymentService
@@ -11,6 +11,7 @@ app = Flask(__name__)
 def handle_exception(error):
     # Log the exception
     log_error("An unhandled exception occurred.")
+    log_error(str(error))
 
     # Default error response
     response = {

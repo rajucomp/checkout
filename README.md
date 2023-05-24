@@ -17,14 +17,20 @@ The payment gateway exposes the following API endpoints:
    - **Request Body**:
      ```json
      {
-         "merchantId": "merchant123",
-         "userId": "user123",
-         "cardNumber": "1234567890123456",
-         "expiryDate": "12/24",
-         "cvv": "123",
-         "amount": 99.99,
-         "currency": "USD"
-     }
+         "data": {
+            "processPaymentTransactionRequest": {
+                  "merchantId": "merchant123",
+                  "userId": "JaiShreeRam",
+                  "amount": 99.99,
+                  "currency": "USD",
+                  "cardDetails": {
+                     "cardNumber": "1234567890123456",
+                     "expiryDate": "12/24",
+                     "cvv": "123"
+                  }
+            }
+         }
+      }
      ```
    - **Response**: Success or failure message
 
