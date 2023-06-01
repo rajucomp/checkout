@@ -1,8 +1,16 @@
-from services.payment_service import PaymentService
+import uuid
+from myapp.services.payment_service import PaymentService
 
 
 class TestPayments:
-    def test_payment_status_matches_success_when_payment_is_successful(self) -> None:
+    def test_payment_status_matches_success_when_payment_is_successful(self, mocker) -> None:
+        response = {
+                "status_code": 200,
+                "bank_transaction_id": str(uuid.uuid4()),
+                "payment_status": "SUCCESS",
+                "response": "Payment processed successfully",
+            }
+        #mocker.patch('services.payment_service.process_payment', return_value = response)
         payment_service = PaymentService()
 
         self.request = {
