@@ -16,6 +16,6 @@ COPY . .
 # Expose the application port
 EXPOSE 5000
 
-ENV FLASK_APP=src/myapp/pp.py
+ENV FLASK_APP=src/myapp/app.py
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
