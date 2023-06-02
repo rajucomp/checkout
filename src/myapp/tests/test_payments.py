@@ -1,17 +1,18 @@
 import uuid
-from myapp.services.payment_service import PaymentService
+from services.payment_service import PaymentService
+from unittest import TestCase
+from unittest.mock import patch
 
-
-class TestPayments:
-    def test_payment_status_matches_success_when_payment_is_successful(self, mocker) -> None:
+class TestPayments(TestCase):
+    @patch("services.payment_service")
+    def test_payment_status_matches_success_when_payment_is_successful(self, mock_service) -> None:
         response = {
                 "status_code": 200,
                 "bank_transaction_id": str(uuid.uuid4()),
                 "payment_status": "SUCCESS",
                 "response": "Payment processed successfully",
             }
-        #mocker.patch('services.payment_service.process_payment', return_value = response)
-        payment_service = PaymentService()
+        mock_service.process_payment.return_value = response
 
         self.request = {
             "data": {
@@ -30,8 +31,7 @@ class TestPayments:
             }
         }
 
-        response = payment_service.process_payment(self.request)
-        print(response)
+        response = mock_service.process_payment(self.request)
         assert response["payment_status"] == "SUCCESS"
 
     def test_payment_amount_matches_original_amount_when_payment_is_successfuk(
